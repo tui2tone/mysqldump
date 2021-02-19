@@ -93,14 +93,16 @@ async function getTriggerDump(
             }
 
             // add a header to the trigger
-            sql = [
-                '# ------------------------------------------------------------',
-                `# TRIGGER DUMP FOR: ${res.Trigger}`,
-                '# ------------------------------------------------------------',
-                '',
-                sql,
-                '',
-            ].join('\n');
+            if (!options.compact) {
+                sql = [
+                    '# ------------------------------------------------------------',
+                    `# TRIGGER DUMP FOR: ${res.Trigger}`,
+                    '# ------------------------------------------------------------',
+                    '',
+                    sql,
+                    '',
+                ].join('\n');
+            }
 
             table.triggers.push(sql);
 

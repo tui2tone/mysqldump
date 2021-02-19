@@ -125,14 +125,16 @@ async function getSchemaDump(
             s.schema += ';';
 
             // pad the sql with a header
-            s.schema = [
-                '# ------------------------------------------------------------',
-                `# SCHEMA DUMP FOR TABLE: ${s.name}`,
-                '# ------------------------------------------------------------',
-                '',
-                s.schema,
-                '',
-            ].join('\n');
+            if (!options.compact) {
+                s.schema = [
+                    '# ------------------------------------------------------------',
+                    `# SCHEMA DUMP FOR TABLE: ${s.name}`,
+                    '# ------------------------------------------------------------',
+                    '',
+                    s.schema,
+                    '',
+                ].join('\n');
+            }
 
             return s;
         })
