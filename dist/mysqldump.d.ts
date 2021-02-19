@@ -1,3 +1,4 @@
+/// <reference types="jest" />
 /// <reference types="node" />
 
 export interface ConnectionOptions {
@@ -91,6 +92,7 @@ export interface SchemaDumpOptions {
 	 * Defaults to true.
 	 */
 	format?: boolean;
+	compact?: boolean;
 	/**
 	 * Options for table dumps
 	 */
@@ -149,6 +151,7 @@ export interface TriggerDumpOptions {
 	 * Defaults to false.
 	 */
 	dropIfExist?: boolean;
+	compact?: boolean;
 	/**
 	 * Include the `DEFINER = {\`user\`@\`host\` | CURRENT_USER}` in the view definition or not
 	 * Defaults to false.
